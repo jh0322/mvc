@@ -15,7 +15,7 @@ public class ForwardController extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String data = "apple";
-        response.sendRedirect("view/result.jsp");
+        response.sendRedirect("/view/result.jsp");
 
     }
 }
