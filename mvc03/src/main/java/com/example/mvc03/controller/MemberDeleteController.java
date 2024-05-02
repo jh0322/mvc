@@ -1,6 +1,6 @@
 package com.example.mvc03.controller;
 
-import com.example.mvc1.model.MemberDAO;
+import com.example.mvc03.model.MemberDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
