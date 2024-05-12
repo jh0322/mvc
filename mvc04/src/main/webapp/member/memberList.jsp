@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.example.mvc03.model.MemberVO" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 //    ArrayList<MemberVO> list = (ArrayList<MemberVO>) request.getAttribute("list");
@@ -38,7 +37,7 @@
         <td><input type="button" value="삭제" class="btn btn-danger" onclick="deleteFn(${vo.num})"></td>
     </tr>
     </c:forEach>
-    <td colspan="8" align="right"><input type="button" value="회원가입" class="btn btn-primary" onclick="location.href='member/memberRegister.html'"></td>
+    <td colspan="8" align="right"><input type="button" value="회원가입" class="btn btn-primary" onclick="location.href='/memberRegister.do'"></td>
 </table>
 </body>
 </html>
