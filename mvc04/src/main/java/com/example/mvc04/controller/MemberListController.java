@@ -23,7 +23,7 @@ public class MemberListController implements Controller{
         request.setAttribute("list", list);
         //member/memberList.jsp
         // 다음페이지는
-        return "member/memberList.jsp";
+        return "/WEB-INF/member/memberList.jsp";
 
     }
 }
