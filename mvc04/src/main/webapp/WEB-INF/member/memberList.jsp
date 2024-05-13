@@ -14,7 +14,7 @@
     </script>
 </head>
 <body>
-[MVC03 예제 - Controller+View(JSTL+EL)]
+[MVC04 예제 - Controller+View(JSTL+EL)]
 <table class="table table-bordered">
     <tr>
         <td>번호</td>
