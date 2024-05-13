@@ -28,7 +28,7 @@ public class MemberUpdateController implements Controller{
         String nextPage = null;
         if (cnt > 0) {
             //수정 성공
-            nextPage = "/memberList.do";
+            nextPage = "redirect:/memberList.do";
         } else {
             throw new ServletException("not update");
         }

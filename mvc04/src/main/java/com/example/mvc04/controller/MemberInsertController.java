@@ -24,7 +24,7 @@ public class MemberInsertController implements Controller{
         String nextPage = null;
         if (cnt > 0) {
             //가입성공
-            nextPage = "/memberList.do";
+            nextPage = "redirect:/memberList.do";
         } else {
             //가입실패 -> 예외객체를 만들어서 WAS에게 던지자.
             throw new ServletException("not insert");

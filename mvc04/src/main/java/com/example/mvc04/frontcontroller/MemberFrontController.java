@@ -25,34 +25,38 @@ public class MemberFrontController extends HttpServlet {
         String url = request.getRequestURI();
         Controller controller = null;
         String nextPage = null;
-
+        //핸들러 매핑
         if (url.equals("/memberList.do")) { // 회원리스트보기
             controller = new MemberListController();
             nextPage = controller.requestHandler(request,response);
-            RequestDispatcher rd = request.getRequestDispatcher(nextPage);
-            rd.forward(request,response);
+
         } else if (url.equals("/memberInsert.do")) { // 회원가입
             controller = new MemberInsertController();
             nextPage = controller.requestHandler(request, response);
-            response.sendRedirect(nextPage);
         } else if (url.equals("/memberRegister.do")) { //회원가입 화면
             controller = new MemberRegisterController();
             nextPage = controller.requestHandler(request, response);
-            RequestDispatcher rd = request.getRequestDispatcher(nextPage);
-            rd.forward(request,response);
+
         } else if (url.equals("/memberContent.do")) {
             controller = new MemberContentController();
             nextPage = controller.requestHandler(request, response);
-            RequestDispatcher rd = request.getRequestDispatcher(nextPage);
-            rd.forward(request, response);
+
         } else if (url.equals("/memberUpdate.do")) {
             controller = new MemberUpdateController();
             nextPage = controller.requestHandler(request, response);
-            response.sendRedirect(nextPage);
         } else if (url.equals("/memberDelete.do")) {
             controller = new MemberDeleteController();
             nextPage = controller.requestHandler(request, response);
-            response.sendRedirect(nextPage);
         } //if_end
+        // forward, redirect
+        if (nextPage != null) {
+            if (nextPage.indexOf("redirect:") != -1) {
+                response.sendRedirect(nextPage.split(":")[1]); //redirect
+            } else {
+                RequestDispatcher rd = request.getRequestDispatcher(nextPage); //forward
+                rd.forward(request, response);
+            }
+        }
+
     }
 }
