@@ -9,12 +9,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet("*.do")
+@Slf4j
 public class MemberFrontController extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,7 +36,7 @@ public class MemberFrontController extends HttpServlet {
             if (nextPage.indexOf("redirect:") != -1) {
                 response.sendRedirect(nextPage.split(":")[1]); //redirect
             } else {
-                RequestDispatcher rd = request.getRequestDispatcher(nextPage); //forward
+                RequestDispatcher rd = request.getRequestDispatcher(ViewResolver.makeView(nextPage)); //forward
                 rd.forward(request, response);
             }
         }

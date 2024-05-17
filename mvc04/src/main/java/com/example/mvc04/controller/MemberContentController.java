@@ -16,7 +16,8 @@ public class MemberContentController implements Controller{
         MemberDAO dao = new MemberDAO();
         MemberVO vo = dao.memberContent(num);
         // 객체 바인딩
-        request.setAttribute("vo", vo);
-        return "/WEB-INF/member/memberContent.jsp";
+        request.setAttribute("vo", vo); // 뷰의 이름만 리턴
+        return "memberContent";
+//        return "/WEB-INF/member/memberContent.jsp";
     }
 }
